@@ -1,0 +1,13 @@
+.resultDiv{
+    background: aqua;
+    padding: 10px;  
+}
+.title{
+    background: antiquewhite;
+    padding: 4px;
+}
+.previewTitle{
+    background: rgb(120, 150, 176);
+    display: inline;
+    padding: 4px;
+}
