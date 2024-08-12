@@ -46,7 +46,7 @@ function App() {
           <Alert showAlert={showAlert} alert={alert} />
           <Routes>
             <Route path="/" element={<Textarea className="container my-3" modeStatus={mode} showAlert={showAlert} />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/about" element={<About modeStatus={mode} />} />
           </Routes>
         </div>
       </BrowserRouter >

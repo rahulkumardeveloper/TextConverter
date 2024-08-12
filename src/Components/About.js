@@ -1,6 +1,8 @@
 import React from 'react';
 
-export default function About() {
+export default function About(props) {
+
+
     return (
         <div className='container my-3'>
             <div className="accordion" id="accordionExample">
@@ -11,7 +13,8 @@ export default function About() {
                         </button>
                     </h2>
                     <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div className="accordion-body">
+                        <div className="accordion-body"
+                            style={{ color: props.modeStatus === 'dark' ? 'chartreuse' : 'black', backgroundColor: props.modeStatus === 'light' ? 'antiquewhite' : 'black' }}>
                             <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                         </div>
                     </div>
