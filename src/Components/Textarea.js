@@ -13,44 +13,64 @@ export default function Textarea(props) {
 
   }
   const handleUpperCase = () => {
-    let uppercaseText = text.toUpperCase();
-    setText(uppercaseText);
-    props.showAlert("converted in to UpperCase", 'success')
+    if (text.length === 0) { props.showAlert("Please Type Text", 'warning') }
+    else {
+      let uppercaseText = text.toUpperCase();
+      setText(uppercaseText);
+      props.showAlert("converted in to UpperCase", 'success')
+    }
   }
   const handleLowerCase = () => {
-    let newText = text.toLowerCase();
-    setText(newText);
-    props.showAlert("converted in to LowerCase", 'success')
-
+    if (text.length === 0) { props.showAlert("Please Type Text", 'warning') }
+    else {
+      let newText = text.toLowerCase();
+      setText(newText);
+      props.showAlert("converted in to LowerCase", 'success')
+    }
 
   }
   const handleClear = () => {
-    let newText = '';
-    setText(newText);
-    props.showAlert("Text cleard", 'success')
+    if (text.length === 0) { props.showAlert("Please Type Text", 'warning') }
+    else {
+      let newText = '';
+      setText(newText);
+      props.showAlert("Text cleard", 'success')
+    }
   }
   const handleTitleCase = () => {
-    let newText = text.toLowerCase().split(' ').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-    setText(newText);
-    props.showAlert("converted in to Title Case", 'success')
+    if (text.length === 0) { props.showAlert("Please Type Text", 'warning') }
+
+    else {
+      let newText = text.toLowerCase().split(' ').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+      setText(newText);
+      props.showAlert("converted in to Title Case", 'success')
+    }
 
   }
 
   const handleCopyText = () => {
-    navigator.clipboard.writeText(text)
-      .then(() => {
-        props.showAlert("Text copyied to clipboard", 'success')
-      })
-      .catch(err => {
-        props.showAlert("faild copyied to clipboard", 'success')
-      });
+    if (text.length === 0) { props.showAlert("Please Type Text", 'warning') }
+
+    else {
+      navigator.clipboard.writeText(text)
+        .then(() => {
+          props.showAlert("Text copyied to clipboard", 'success')
+        })
+        .catch(err => {
+          props.showAlert("faild copyied to clipboard", 'success')
+        });
+    }
   };
   const handleExtraSpace = () => {
-    var cleanedString = text.split(' ')      // Split the string into an array of words
-      .filter(word => word !== '')  // Filter out empty elements
-      .join(' ');
-    setText(cleanedString)
-    props.showAlert("Remove extra spaces", 'success')
+    if (text.length === 0) { props.showAlert("Please Type Text", 'warning') }
+
+    else {
+      var cleanedString = text.split(' ')      // Split the string into an array of words
+        .filter(word => word !== '')  // Filter out empty elements
+        .join(' ');
+      setText(cleanedString)
+      props.showAlert("Remove extra spaces", 'success');
+    }
 
   }
   return (
@@ -60,11 +80,11 @@ export default function Textarea(props) {
           <h3 className='mb-2 title' style={{ color: props.modeStatus === 'light' ? 'black' : 'white', backgroundColor: props.modeStatus === 'light' ? 'antiquewhite' : 'grey' }}> Please Enter Text </h3>
           <div className='mb-4'>
             <button className="btn btn-light" onClick={handleUpperCase}>To Upper Case</button>
-            <button className="btn btn-light mx-2" onClick={handleLowerCase}>To Lower Case</button>
-            <button className="btn btn-light mx-2" onClick={handleTitleCase}>Title Case</button>
-            <button className="btn btn-light mx-2" onClick={handleExtraSpace}>Remove Extra space</button>
-            <button className="btn btn-light mx-2" onClick={handleClear}>  <i className="fa-solid fa-trash"></i></button>
-            <button className="btn btn-light mx-2" onClick={handleCopyText}>  <i className="fa-solid fa-copy"></i></button>
+            <button className="btn btn-light mx-2 my-2" onClick={handleLowerCase}>To Lower Case</button>
+            <button className="btn btn-light mx-2 my-2" onClick={handleTitleCase}>Title Case</button>
+            <button className="btn btn-light mx-2 my-2" onClick={handleExtraSpace}>Remove Extra space</button>
+            <button className="btn btn-light mx-2 my-2" onClick={handleClear}>  <i className="fa-solid fa-trash"></i></button>
+            <button className="btn btn-light mx-2 my-2" onClick={handleCopyText}>  <i className="fa-solid fa-copy"></i></button>
 
           </div>
           <div className="input-group">

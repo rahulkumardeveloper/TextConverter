@@ -2,7 +2,6 @@ import React from 'react';
 
 export default function About(props) {
 
-
     return (
         <div className='container my-3'>
             <div className="accordion" id="accordionExample">

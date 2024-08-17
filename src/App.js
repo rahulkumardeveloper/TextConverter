@@ -2,9 +2,9 @@ import "./App.css";
 import Navbar from "./Components/Navbar";
 import Textarea from "./Components/Textarea";
 import Alert from "./Components/Alert";
-// import About from "./Components/About";
+import About from "./Components/About";
 import React, { useState } from 'react';
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
 
@@ -40,17 +40,17 @@ function App() {
   }
   return (
     <>
-      {/* <BrowserRouter> */}
-      <div className="app">
-        <Navbar title="TextConverter" modeStatus={mode} fnChangeMode={changeModeStatus} />
-        <Alert showAlert={showAlert} alert={alert} />
-        <Textarea className="container my-3" modeStatus={mode} showAlert={showAlert} />
-        {/* <Routes>
+      <BrowserRouter>
+        <div className="app">
+          <Navbar title="TextConverter" modeStatus={mode} fnChangeMode={changeModeStatus} />
+          <Alert showAlert={showAlert} alert={alert} />
+          {/* <Textarea className="container my-3" modeStatus={mode} showAlert={showAlert} /> */}
+          <Routes>
             <Route path="/" element={<Textarea className="container my-3" modeStatus={mode} showAlert={showAlert} />} />
             <Route path="/about" element={<About modeStatus={mode} />} />
-          </Routes> */}
-      </div>
-      {/* </BrowserRouter > */}
+          </Routes>
+        </div>
+      </BrowserRouter >
     </>
   );
 }
